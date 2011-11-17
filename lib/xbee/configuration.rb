@@ -3,7 +3,7 @@ require 'serialport'
 module XBee
   module Configuration
     VALID_OPTIONS_KEYS = [
-      :adapter,
+      :usbserial,
       :baud,
       :data_bits,
       :stop_bits,
@@ -13,9 +13,10 @@ module XBee
       :user,
       :pass].freeze
 
-    # The adapter that will be used
-    Dir.chdir("/dev")
-    DEFAULT_USB = Dir.glob("tty.usbserial*")
+    # The usbserial port that will be used
+#    Dir.chdir("/dev")
+#    DEFAULT_USBSERIAL = Dir.glob("tty.usbserial*")
+    DEFAULT_USBSERIAL = "tty.usbserial-A700fpHG".freeze
     DEFAULT_BAUD = 9600
     DEFAULT_DATA_BITS = 8
     DEFAULT_STOP_BITS = 1
@@ -26,6 +27,9 @@ module XBee
     DEFAULT_DB = "db".freeze
     DEFAULT_USER = "user".freeze
     DEFAULT_PASS = "pass".freeze
+
+    # @private
+    attr_accessor *VALID_OPTIONS_KEYS
 
     # When this module is extended, set all configuration options to their default values
     def self.extended(base)
@@ -46,7 +50,7 @@ module XBee
 
     # Reset all configuration options to defaults
     def reset
-      self.adapter            = DEFAULT_USB
+      self.usbserial          = DEFAULT_USBSERIAL
       self.baud               = DEFAULT_BAUD
       self.data_bits          = DEFAULT_DATA_BITS
       self.stop_bits          = DEFAULT_STOP_BITS
