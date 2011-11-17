@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "xbeeSerialMonitor"
   gem.homepage = "http://github.com/kingbin/xbeeSerialMonitor"
   gem.license = "MIT"
-  gem.summary = %Q{playing with jeweler}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{seperating Serial Logic}
+  gem.description = %Q{seperating xbee serial monitor logic, playing with ruby and being cool}
   gem.email = "chris.blazek@gmail.com"
   gem.authors = ["Chris Blazek"]
   # dependencies defined in Gemfile
@@ -42,7 +42,8 @@ end
 
 task :default => :test
 
-require 'rake/rdoctask'
+#require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 

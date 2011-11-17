@@ -2,7 +2,7 @@ require 'xbee/api'
 require 'xbee/configuration'
 require 'xbee/client'
 
-=begin
+#=begin
 module XBee
   extend Configuration
   class << self
@@ -24,4 +24,4 @@ module XBee
     end
   end
 end
-=end
+#=end
