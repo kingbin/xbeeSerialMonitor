@@ -2,7 +2,6 @@ require 'mysql'
 
 module XBee
   class Client
-    # Defines methods related to friends and followers
     module Database
       def SaveMessage(message)
 

@@ -1,6 +1,28 @@
 = xbeeSerialMonitor
 
-Description goes here.
+Functions for my SmartHome system wrapped up in a neat little Gem. Maybe it's overkill and has taken me longer to write than my norm everyday dev,
+but I've enjoyed every bit of learning something new. This is a project I'm slowly putting together with a couple mins here and couple mins there.
+
+I'm not a ruby developer so I'm open to any comments or suggestions. I choose ruby because I can use this code on multiple systems.
+
+I've got one prototype module that sends alerts from my security system to an xbee commander. The  gem will support control of a wifi thermostat, command a garage door  along with other senors around the house. 
+
+
+= Example Use 
+ruby-1.9.2-p290 :001 > require 'xbeeSerialMonitor'
+ => true 
+ruby-1.9.2-p290 :002 > XBee.configure do |config|
+ruby-1.9.2-p290 :003 >     config.host = "127.1.1.1"
+ruby-1.9.2-p290 :004?>   config.db = "HomeSmarts"
+ruby-1.9.2-p290 :005?>   config.user = "smart"
+ruby-1.9.2-p290 :006?>   config.pass = "smarthome"
+ruby-1.9.2-p290 :007?>   end
+ => "smarthome" 
+ruby-1.9.2-p290 :010 > client = XBee::Client.new
+ => #<XBee::Client:0x007ffc6b06edd8 @usbserial=["tty.usbserial-A700fpHG"], @baud=9600, @data_bits=8, @stop_bits=1, @parity=0, @host="127.1.1.1", @db="HomeSmarts", @user="smart", @pass="smarthome"> 
+ruby-1.9.2-p290 :008 > client.SaveMessage("7e,00,0d,90,00,7d,33,a2,00,40,71,07,15,ed,15,01,42,a8,")
+7e,00,0d,90,00,7d,33,a2,00,40,71,07,15,ed,15,01,42,a8,
+
 
 == Contributing to xbeeSerialMonitor
  

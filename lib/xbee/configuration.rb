@@ -8,18 +8,20 @@ module XBee
       :data_bits,
       :stop_bits,
       :parity,
+      :thermostat_ip,
       :host,
       :db,
       :user,
       :pass].freeze
 
     # The usbserial port that will be used
-#    Dir.chdir("/dev")
-#    DEFAULT_USBSERIAL = Dir.glob("tty.usbserial*")
-    DEFAULT_USBSERIAL = "tty.usbserial-A700fpHG".freeze
+    Dir.chdir("/dev")
+    DEFAULT_USBSERIAL = Dir.glob("tty.usbserial*")
+#    DEFAULT_USBSERIAL = "tty.usbserial-A700fpHG".freeze
     DEFAULT_BAUD = 9600
     DEFAULT_DATA_BITS = 8
     DEFAULT_STOP_BITS = 1
+    DEFAULT_THERMOSTAT_IP = "192.168.1.1".freeze
     DEFAULT_PARITY = SerialPort::NONE
 
     # should seperate into it's own module, but for now I'm combining them
@@ -55,6 +57,7 @@ module XBee
       self.data_bits          = DEFAULT_DATA_BITS
       self.stop_bits          = DEFAULT_STOP_BITS
       self.parity             = DEFAULT_PARITY
+      self.thermostat_ip      = DEFAULT_THERMOSTAT_IP
       self.host               = DEFAULT_HOST
       self.db                 = DEFAULT_DB
       self.user               = DEFAULT_USER
