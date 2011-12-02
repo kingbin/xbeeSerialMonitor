@@ -1,4 +1,5 @@
-require 'json'
+require 'JSON'
+require 'httparty'
 
 module XBee
   class Client
@@ -7,7 +8,8 @@ module XBee
       def status_of_thermostat()
         # puts "http://#{thermostat_ip}/tstat"
 
-          status = JSON.parse(open("http://#{thermostat_ip}/tstat").read) rescue nil
+          page = HTTParty.get("http://#{thermostat_ip}/tstat").body rescue nil
+          status = JSON.parse(page) rescue nil
           returnStatus = Array.new
 
           if status
