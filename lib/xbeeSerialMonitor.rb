@@ -1,6 +1,7 @@
 require 'xbee/api'
 require 'xbee/configuration'
 require 'xbee/client'
+require 'xbee/rx_packet'
 
 #=begin
 module XBee
